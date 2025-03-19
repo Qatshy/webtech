@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<head>
+    <title>Teendő Lista</title>
+    <style>
+        body {
+            text-align: center;
+            margin: 50px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            cursor: pointer;
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin: 5px;
+            border-radius: 5px;
+        }
+        li.completed {
+            text-decoration: line-through;
+            color: gray;
+        }
+    </style>
+</head>
+<body>
+    <h1>Teendő Lista</h1>
+    <input type="text" id="todoInput">
+    <button onclick="add()">Hozzáadás</button>
+    <ul id="todoList"></ul>
+
+    <script>
+        function add() {
+            let input = document.getElementById("todoInput");
+            let text = input.value.trim();
+            if (text === "") return;
+
+            let li = document.createElement("li");
+            li.textContent = text;
+            li.onclick = function() {
+                li.classList.toggle("completed");
+            };
+
+            document.getElementById("todoList").appendChild(li);
+            input.value = "";
+        }
+    </script>
+</body>
+</html>
