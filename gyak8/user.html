@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Git App - User adatlap</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="card" id="user-profile">
+  </div>
+  <script src="app.js"></script>
+  <script>
+    async function fetchUser() {
+      const params = new URLSearchParams(window.location.search);
+      const username = params.get('id');
+
+      if (!username) {
+        document.getElementById('user-profile').innerHTML = '<p>link végére kell: user.html?id=(username ide)</p>';
+        return;
+      }
+
+      try {
+        const res = await fetch(`https://api.github.com/users/${username}`, {
+                    headers: {
+                        'Authorization': 'Bearer ' + GITHUB_ACCESS_TOKEN
+                    }
+                });
+        if (!res.ok) throw new Error('Nincs ilyen felhasználó');
+        const data = await res.json();
+
+        const container = document.getElementById('user-profile');
+        container.innerHTML = `
+          ${data.avatar_url ? `<img class="avatar" src="${data.avatar_url}" alt="${data.login}">` : ''}
+          <div class="info">
+            ${data.name ? `<p><strong>Név:</strong> ${data.name}</p>` : ''}
+            ${data.blog ? `<p><strong>Blog:</strong> <a href="${data.blog}" target="_blank">${data.blog}</a></p>` : ''}
+            ${data.location ? `<p><strong>Helyszín:</strong> ${data.location}</p>` : ''}
+            ${data.bio ? `<p><strong>Bemutatkozás:</strong> ${data.bio}</p>` : ''}
+            ${data.public_repos ? `<p><strong>Publikus repók:</strong> ${data.public_repos}</p>` : ''}
+            ${data.followers ? `<p><strong>Követők:</strong> ${data.followers}</p>` : ''}
+          </div>
+        `;
+      } catch (err) {
+        document.getElementById('user-profile').innerHTML = `<p>Hiba: ${err.message}</p>`;
+      }
+    }
+
+    fetchUser();
+  </script>
+</body>
