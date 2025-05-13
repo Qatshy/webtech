@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Autó adatai</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2>Autó adatai</h2>
+    <label for="neptunInput">Neptun kód:</label>
+    <input type="text" id="neptunInput"><br>
+    <label for="idInput">ID:</label>
+    <input type="number" step="1" id="idInput" placeholder="0<ID<10"><br>
+    <button id="repo-search-btn" class="btn btn-primary" onclick="getCarById(neptun, id)">Autók lekérése</button>
+
+  <div id="carDetails"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>

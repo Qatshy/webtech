@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Autó törlése</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h2>Autó törlése</h2>
+
+  <label for="neptunInput">Neptun kód:</label>
+  <input type="text" id="neptunInput"><br>
+  <label for="idInput">ID:</label>
+  <input type="number" step="1" id="idInput" placeholder="0<ID<10"><br>
+  <button id="repo-search-btn" class="btn btn-primary" onclick="showdelButton()">Autó lekérdezése</button>
+  <button id="deleteBtn" class="btn btn-danger" onclick="delCar()" style="display:none;">Autó törlése</button>
+
+  <div id="carDetails"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>

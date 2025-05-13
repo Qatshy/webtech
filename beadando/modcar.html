@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Autó módosítása</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h2>Autó módosítása</h2>
+
+  <label for="neptunInput">Neptun kód:</label>
+  <input type="text" id="neptunInput"><br>
+  <label for="idInput">ID:</label>
+  <input type="number" step="1" id="idInput" placeholder="0<ID<10"><br>
+  <label for="brandInput">Márka:</label>
+  <select id="brandInput">
+    <option value="Toyota">Toyota</option>
+    <option value="Honda">Honda</option>
+    <option value="Ford">Ford</option>
+    <option value="Chevrolet">Chevrolet</option>
+    <option value="Nissan">Nissan</option>
+    <option value="BMW">BMW</option>
+    <option value="Mercedes-Benz">Mercedes-Benz</option>
+    <option value="Volkswagen">Volkswagen</option>
+    <option value="Audi">Audi</option>
+    <option value="Hyundai">Hyundai</option>
+    <option value="Kia">Kia</option>
+    <option value="Subaru">Subaru</option>
+    <option value="Lexus">Lexus</option>
+    <option value="Mazda">Mazda</option>
+    <option value="Tesla">Tesla</option>
+    <option value="Jeep">Jeep</option>
+    <option value="Porsche">Porsche</option>
+    <option value="Volvo">Volvo</option>
+    <option value="Jaguar">Jaguar</option>
+    <option value="Land Rover">Land Rover</option>
+    <option value="Mitsubishi">Mitsubishi</option>
+    <option value="Ferrari">Ferrari</option>
+    <option value="Lamborghini">Lamborghini</option>
+  </select>
+</select><br>
+  <label for="modelInput">Modell:</label>
+  <input type="text" id="modelInput"><br>
+  <label for="fueluseInput">Fogyasztás (l/100km):</label>
+  <input type="number" step="0.01" id="fueluseInput" placeholder="Fogyasztás > 0"><br>
+  <label for="ownerInput">Tulajdonos:</label>
+  <input type="text" id="ownerInput"><br>
+  <label for="dayOfCommissionInput">Forgalomba helyezés:</label>
+  <input type="date" id="dayOfCommissionInput"><br>
+  <label for="electricInput">Elektromos?</label>
+  <select id="electricInput">
+    <option value="true">Igen</option>
+    <option value="false">Nem</option>
+  </select><br>
+
+  <button id="repo-search-btn" class="btn btn-primary" onclick="modCar()">Autó módosítása</button>
+
+  <div id="carDetails"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
